@@ -1,0 +1,259 @@
+/* --- VARIABLES DE COLORES (Basadas en el Logo) --- */
+/* VARIABLES INSPIRADAS EN TU LOGO */
+:root {
+    --fondo-oscuro: #10151f;
+    --tarjeta-fondo: #1a212e;
+    --cian-logo: #00e5ff;
+    --verde-logo: #00ff88;
+    --texto-blanco: #ffffff;
+    --texto-gris: #a0aabf;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-blanco);
+    line-height: 1.6;
+}
+
+/* NAVEGACIÓN */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8%;
+    background: rgba(16, 21, 31, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, var(--cian-logo), var(--verde-logo)) 1;
+}
+
+.img-logo {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--texto-blanco);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cian-logo);
+}
+
+/* HERO */
+.hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(16, 21, 31, 1)), url('../img/portada.webp') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(to right, var(--cian-logo), var(--verde-logo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* FOTOS INTRO */
+.intro-photos {
+    display: flex;
+    gap: 20px;
+    padding: 40px 8%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photo-box {
+    background: var(--tarjeta-fondo);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.photo-box img {
+    width: 100%;
+    max-width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* PRODUCTOS */
+.products-section {
+    padding: 60px 8%;
+}
+
+.products-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--tarjeta-fondo);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #2d3748;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--cian-logo);
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--cian-logo);
+    margin-bottom: 10px;
+}
+
+.card .descripcion {
+    font-size: 0.9rem;
+    color: var(--texto-gris);
+    margin-bottom: 15px;
+    height: 60px;
+}
+
+.card .price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--verde-logo);
+}
+
+/* CONTACTO */
+.contact-section {
+    background: #0a0e14;
+    padding: 60px 8%;
+}
+
+.flex-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.form-side, .info-side { flex: 1; min-width: 300px; }
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #1a212e;
+    border: 1px solid #2d3748;
+    color: white;
+    border-radius: 8px;
+}
+
+.btn-enviar {
+    background: linear-gradient(to right, var(--cian-logo), var(--verde-logo));
+    color: #10151f;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--texto-gris);
+    font-size: 0.8rem;
+}
+
+
+
+
+
+
+/* Contenedor para que el logo y el texto estén en la misma línea */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre la imagen y el texto */
+}
+
+.logo-texto {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--texto-blanco);
+    letter-spacing: 1px;
+}
+
+/* El toque especial para "Barrio Unión" */
+.logo-texto span {
+    color: var(--cian-logo); /* Aquí usamos el color de tu nuevo logo */
+}
+
+/* Ajuste del tamaño del logo para que no sea gigante */
+.img-logo {
+    height: 55px;
+    width: auto;
+}
+
+.img-logo {
+    width: 60px;          /* Ancho */
+    height: 60px;         /* Alto (debe ser igual al ancho) */
+    border-radius: 50%;   /* ¡Este es el número mágico! */
+    object-fit: cover;    /* Esto evita que la imagen se estire feo */
+}
+
+
+
+
+
