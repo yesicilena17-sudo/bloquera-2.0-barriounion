@@ -280,7 +280,7 @@ if (formContactoDirecto) {
         const mensaje = inputTextarea ? inputTextarea.value : '';
 
         // REEMPLAZA AQUÍ: Pon tu número real de WhatsApp (código de país adelante, sin el +)
-        const tuNumeroWhatsapp = "584120000000"; 
+        const tuNumeroWhatsapp = "584149716960"; 
 
         // Armamos el texto limpio para WhatsApp
         let textoAEnviar = `👷‍♂️ *NUEVA CONSULTA - BLOQUERA BARRIO UNIÓN*%0A%0A`;
