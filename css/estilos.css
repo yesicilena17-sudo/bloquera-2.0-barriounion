@@ -70,6 +70,11 @@ nav ul li a:hover {
 .hero h1 {
     font-size: 3.5rem;
     background: linear-gradient(to right, var(--cian-logo), var(--verde-logo));
+    
+    /* Primero añadimos las propiedades estándar para que Visual Studio Code esté feliz */
+    background-clip: text;
+    
+    /* Luego las versiones con -webkit- para que funcionen en Chrome, Safari y Edge */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -253,7 +258,400 @@ footer {
     object-fit: cover;    /* Esto evita que la imagen se estire feo */
 }
 
+.carrito-icono {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.icono-grafito {
+    color: #ededed; /* Este es un tono grafito muy elegante */
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.icono-grafito:hover {
+    color: var(--cian-logo); /* Cambia a cian cuando pasas el mouse */
+    transform: scale(1.1); /* Se agranda un poquito */
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -8px;      /* Lo subimos un poquito más */
+    right: -12px;   /* Lo movemos un poco a la derecha */
+    background-color: #ff4757; /* Un color rojo suave (puedes cambiarlo) */
+    color: white;   /* Texto blanco para que resalte con el nuevo fondo */
+    border-radius: 50%;
+    
+    /* AJUSTE DE TAMAÑO */
+    width: 18px;    /* Ancho fijo para que sea un círculo perfecto */
+    height: 18px;   /* Alto igual al ancho */
+    font-size: 10px; /* Letra más pequeña */
+    
+    /* Para centrar el número perfectamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.carrito-seccion {
+    background: #1a1f2b;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: 1px solid var(--cian-logo);
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+}
+
+.controles button {
+    background: var(--cian-logo);
+    border: none;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.form-pedido {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-pedido input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #0d1117;
+    color: white;
+}
+
+.btn-enviar {
+    background-color: #25d366; /* Color verde WhatsApp */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Fondo oscuro que cubre toda la pantalla */
+.modal-overlay {
+    display: none; /* Empieza oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La tarjeta blanca/oscura central */
+.carrito-modal-contenido {
+    background: #1a1f2b;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid var(--cian-logo);
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
 
 
 
 
+/* pendiente por borrar */
+
+
+.fila-compra {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Los centramos primero */
+    gap: 20px;               /* Esto define la separación exacta (puedes subir o bajar este número) */
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.price {
+    color: #2ed573;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0; /* Quitamos márgenes extra */
+}
+
+.btn-agregar-circular {
+    background-color: var(--cian-logo);
+    color: #0743d0;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem; /* Para que el icono se vea bien */
+    transition: 0.3s;
+}
+
+.btn-agregar-circular:hover {
+    transform: scale(1.1);          /* Crece un poquito al pasar el mouse */
+    background-color: #f9feff;
+}
+
+
+/*  nuevo actualizado*/
+
+/* Contenedor principal de la fila */
+.fila-compra {
+    display: flex;
+    justify-content: space-between; /* Separa el precio a la izquierda y los controles a la derecha */
+    align-items: center;
+    margin-top: 15px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+/* El texto del precio */
+.price {
+    color: #2ed573; /* Verde para resaltar el costo */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Contenedor que junta el cuadro de texto con el botón */
+.controles-ingreso {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio de separación entre la casilla y el botón */
+}
+
+/* Casilla de escribir cantidad */
+.input-cantidad {
+    width: 55px; /* Ancho cómodo para escribir números de 3 o 4 cifras */
+    padding: 6px;
+    border: 1px solid #333;
+    background-color: #0d1117; /* Fondo oscuro a juego con la web */
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botón circular del carrito */
+.btn-agregar-circular {
+    background-color: transparent; /* Quitamos el fondo azul pesado */
+    color: var(--cian-logo);       /* El carrito ahora se pinta de tu color cian */
+    border: 2px solid var(--cian-logo); /* Dibujamos solo la línea fina circular alrededor */
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;            /* Mantiene la forma redondita perfecta */
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;     /* Transición suave para el efecto al pasar el mouse */
+}
+
+/* EFECTO HOVER: Qué pasa cuando el cliente pasa el mouse por encima */
+.btn-agregar-circular:hover {
+    background-color: var(--cian-logo); /* El círculo se llena de cian solo al tocarlo */
+    color: #1a1f2b;                    /* El icono del carrito se vuelve oscuro para contrastar */
+    transform: scale(1.05);            /* Flota un poquitito hacia adelante */
+    box-shadow: 0 0 10px var(--cian-logo); /* Le da un ligero brillo de neón muy moderno */
+}
+
+/* Animación al pasar el mouse por encima del botón */
+.btn-agregar-circular:hover {
+    transform: scale(1.1); /* Se agranda un poquito */
+    background-color: #00e5ff; /* Se vuelve un cian más brillante */
+}
+
+/* Contenedor de la casilla y la papelera en el modal */
+.controles-carrito {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Casilla de cantidad editable dentro del carrito */
+.input-cantidad-modal {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #444;
+    background-color: #1a1f2b; /* Fondo oscuro a juego */
+    color: #2ed573;            /* Texto verde para que resalte */
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* Botón de la papelera */
+.btn-borrar-item {
+    background: none;
+    border: none;
+    color: #ff4757;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.btn-borrar-item:hover {
+    transform: scale(1.2);
+    color: #ff6b81;
+}
+
+/* ==========================================
+   1. ARREGLO DEL DESBORDE (SCROLL INTERNO)
+   ========================================== */
+#lista-carrito {
+    max-height: 240px;       /* Altura máxima para que quepan unos 3 o 4 bloques a la vista */
+    overflow-y: auto;        /* Si hay más productos, activa la barra de scroll vertical automáticamente */
+    padding-right: 8px;      /* Espacio para que la barra no tape el botón de borrar */
+    margin-bottom: 15px;
+}
+
+/* Estilo elegante para la barra de scroll (para que no se vea la clásica barra fea del navegador) */
+#lista-carrito::-webkit-scrollbar {
+    width: 6px;
+}
+#lista-carrito::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+#lista-carrito::-webkit-scrollbar-thumb {
+    background: var(--cian-logo);
+    border-radius: 4px;
+}
+
+/* ==========================================
+   2. SISTEMA DE COLORES (MODO CLARO / OSCURO)
+   ========================================== */
+
+/* Colores por defecto (Modo Oscuro que ya tienes) */
+:root {
+    --bg-principal: #0d1117;
+    --bg-tarjeta: #1a1f2b;
+    --texto-principal: #ffffff;
+    --texto-secundario: #999999;
+    --borde-input: #444444;
+    --cian-logo: #00f0ff; /* Asegúrate de que use tu cian real */
+}
+
+/* Nuevos colores cuando se active el Modo Claro */
+[data-theme="light"] {
+    --bg-principal: #edf0f3;     /* Fondo grisáceo muy limpio y profesional */
+    --bg-tarjeta: #ffffff;       /* Tarjetas blancas que resaltan */
+    --texto-principal: #9f9a9a;  /* Letras oscuras para leer perfectamente */
+    --texto-secundario: #000000; /* Descripciones en gris */
+    --borde-input: #e4cbb2;      /* Bordes de casillas más claros */
+}
+
+
+
+
+/* ASIGNACIÓN DE VARIABLES (Actualiza tus clases existentes con estas variables) */
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card, .modal-contenido, .item-carrito {
+    background-color: var(--bg-tarjeta) !important;
+    color: var(--texto-principal);
+    transition: background-color 0.3s ease;
+}
+
+p.descripcion, .precio-unitario {
+    color: var(--texto-secundario) !important;
+}
+
+input[type="number"], input[type="text"] {
+    background-color: var(--bg-principal) !important;
+    color: var(--texto-principal) !important;
+    border: 1px solid var(--borde-input) !important;
+}
+
+.btn-tema {
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 15px; /* Separación con el carrito */
+    transition: transform 0.2s, color 0.2s;
+}
+
+.btn-tema:hover {
+    color: var(--cian-logo);
+    transform: scale(1.1);
+}
+
+/* Limitamos la altura de la lista del carrito para que aparezca el scroll */
+#lista-carrito {
+    max-height: 220px;       /* No dejará que la lista mida más de 220 píxeles */
+    overflow-y: auto;        /* Activa el scroll vertical solo si los productos superan la altura */
+    padding-right: 10px;     /* Separa los botones del borde para que no se peguen al scroll */
+}
+
+/* Opcional: Esto hace que la barra de scroll se vea delgada y moderna */
+#lista-carrito::-webkit-scrollbar {
+    width: 6px;
+}
+#lista-carrito::-webkit-scrollbar-thumb {
+    background-color: var(--cian-logo);
+    border-radius: 10px;
+}
+
+/* Estilo para el contenedor de tus redes */
+.social-media {
+    display: flex;
+    gap: 20px;          /* Espacio elegante entre Facebook e Instagram */
+    margin-top: 15px;
+}
+
+/* Estilo para los iconos modernos */
+.social-media a {
+    font-size: 2rem;    /* Un tamaño más grande, llamativo y profesional */
+    color: var(--texto-principal) !important; /* Se vuelven negros en modo claro y blancos en modo oscuro */
+    transition: transform 0.2s ease, color 0.2s ease; /* Movimiento suave */
+}
+
+/* Cuando el cliente pasa el puntero por encima */
+.social-media a:hover {
+    transform: scale(1.15); /* El icono flota agrandándose un poquito */
+    color: var(--primario) !important; /* ¡Toma el color naranja moderno de tu paleta! */
+}
